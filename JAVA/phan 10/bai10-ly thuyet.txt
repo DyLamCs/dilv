@@ -1,0 +1,26 @@
+Câu 1: Hãy cho ví dụ sự cần thiết phải tạo sự thừa kế ?
+Trả lời
+- Hạn chế dư thừ code
+- Sử dụng lại nhiều lần
+- Dể mở rộng và phát triển
+vd: Trong trường học có giáo viên, sinh viên, nhân viên tất cả đều có những hoạt động khác nhau với vai trò của mình
+nhưng đều có chung các thuộc tính như: Họ tên, ngày sinh, nơi ở,... 
+Nếu mỗi lớp đều có các thuộc tính này việc viết đi viết lại sẽ rất mất thời gian, 
+nên phân lớp các thuộc tính chung rồi cho kế thừa các thuộc tính này sẽ tiết kiệm được thời gian và công sức.
+
+Câu 2: Hãy cho ví dụ về sự cần thiết phải tái định nghĩa một phương thức ? 
+Trả lời: 
+2 lớp có cùng phương thức không thể phân biệt, nên cần phải tái định nghĩa để phân biệt chúng
+vd: SinhVien và GiaoVien có cùng phương thức DenTruong.
+Để phân biệt thì chúng ta cần tái định nghĩa: SV -> Đến Trường -> Học || GV -> Đến Trường -> Dạy.
+
+Câu 3: Hãy cho ví dụ về sự cần thiết phải nạp chồng một phương thức ?
+Trả lời:
+Cùng tên nhưng khác tham số truyền vào
+Nạp chồng để tạo một đối tượng rỗng, để tăng tính sử dụng của phương thức đấy
+
+Câu 4: Hãy cho ví dụ sự cần thiết phải ngăn cấm không cho tái định nghĩa một phương thức ?
+Trả lời:
+Để hạn chế truy cập từ bên ngoài, để đảm bảo sự nhất quán 
+vd: Có một phương thức nó đúng với đa số với các lớp con thì cần phải ngăn cấm tái định nghĩa.
+Lớp động vật có thuộc tính ăn thì nó đúng với đa số các loài động vật khác nên cấn proteced.

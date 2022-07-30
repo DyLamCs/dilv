@@ -1,0 +1,21 @@
+Câu 1:  Hãy cho ví dụ phân biệt giữa lớp và đối tượng ? 
+Trả lời
+Class là một bản thiết kế trước gồm biến và phương thức bên trong
+Object là thực thể tồn tại độc lập có thuộc tính và hành vi, được tạo nên từ class
+vd: - Class: con người
+    - Object: + thuộc tính: tên, tuổi, giới tính, quốc tịch...
+	      + hành vi: đi lại, ăn uống, ca hát....
+-----------
+Cầu 2: Căn cứ nào để quyết định một giá trị được định nghĩa thành một lớp hay là thuộc tính ?
+Trả lời
+Lớp: được khai báo với từ khóa class (vd: public class Person)
+Thuộc tính: là một biến (vd: public diLai)
+-----------
+Câu 3: Hãy cho ví dụ về sự cần thiết định nghĩa thuộc tính của lớp
+Trả lời
+Con người thì có nhiều thuộc tính: tên, tuổi, giới tính, quốc tịch... dùng để phân biệt giữa người này và người khác
+-----------
+Câu 4: Hãy cho ví dụ về sự cần thiết định nghĩa phương thức của lớp.
+Trả lời:
+Cần định nghĩa ra một phương thức dùng có thể để sử dụng nhiều nơi trong một chương trình.
+vd: print là một phương thức của thư viện java.io.PrintSteam, nó được sử dụng nhiều lần tạo sự thuận lợi khi thao tác lập trình.

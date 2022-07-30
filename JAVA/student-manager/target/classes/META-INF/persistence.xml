@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+						http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<!-- Dùng để định nghĩa tên của một Persistence Unit trong JPA -->
+
+	<persistence-unit name="student-manager"
+		transaction-type="RESOURCE_LOCAL">
+
+		<!-- Chỉ định JPA provider triển khai tất cả các API của JPA -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.web.model.Student</class>
+
+		<properties>
+			<!-- Các thông tin dùng để kết nối đến database bao gồm URL tên csdl, 
+				driver, username và password -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/student-manager" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="12345678900" />
+
+			<!-- Quản lý các câu lệnh của SQL được generate bởi Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+
+			<!-- Tạo tất cả các table trong database tương ứng với entity mapping 
+				class đã định nghĩa -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+		</properties>
+	</persistence-unit>
+</persistence>

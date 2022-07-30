@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<project name="demo-ant">  
+    <target name="compile">  
+        <javac includeantruntime="false" srcdir="src/main/java" destdir = "demo-ant.war/WEB-INF/classes"></javac>  
+    </target>
+	<target name="war" depends="compile">  
+		<war destfile="lib\demo-ant.war" webxml="demo-ant.war/WEB-INF/web.xml">
+		  <fileset dir="demo-ant.war">
+		  	<include name="**/*.jsp"/>
+		  </fileset>
+		</war>  
+	 </target>
+</project>

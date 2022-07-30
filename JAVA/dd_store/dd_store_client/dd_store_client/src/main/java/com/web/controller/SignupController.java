@@ -1,0 +1,66 @@
+package com.web.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.web.model.AccountModel;
+import com.web.model.ResponseObjectModel;
+import com.web.services.IAccountService;
+
+
+//@Controller là chú thích chính cho biết lớp được chú thích đóng vai trò là Bộ điều khiển của MVC
+//@RequestMapping để ánh xạ các yêu cầu tới các phương thức của bộ điều khiển
+@Controller
+@RequestMapping("/signup")
+public class SignupController {
+	@Autowired
+	IAccountService accountService;
+
+	@GetMapping
+	public String getLogin(HttpServletRequest request) {
+		String cookie = accountService.checkCookie("API_JSESSIONID", request.getCookies());
+		if (cookie != "") {
+			if (accountService.setCookie(cookie)) {
+				String referer = request.getHeader("Referer");
+				return referer != null ? "redirect:" + referer : "redirect:/";
+			}
+		}
+		return "signup";
+	}
+	
+	@PostMapping
+	public String login(@ModelAttribute AccountModel account, Model model, HttpServletRequest request,HttpSession session) {
+		model.addAttribute("status", "Login");
+		// check cookie
+		String cookie = accountService.checkCookie("API_JSESSIONID", request.getCookies());
+		if (cookie == "") {
+			ResponseObjectModel<AccountModel> responseObject = accountService.login(account);
+
+			if ("OK".equals(responseObject.getStatus())) {
+				session.setAttribute("account", responseObject.getData());
+				if (responseObject.getData().getAccRole().contains("ROLE_USER")) {
+					return "redirect:/home";
+				}
+				if (responseObject.getData().getAccRole().contains("ROLE_ADMIN")) {
+					return "redirect:/account";
+				}
+
+			} else if ("FALIED".equals(responseObject.getStatus())) {
+				model.addAttribute("message", "ERROR: " + responseObject.getMessage());
+			} else {
+				model.addAttribute("message", "ERROR: Sai mat khau");
+			}
+		}
+		return "redirect:/home";
+
+	}
+
+}

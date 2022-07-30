@@ -1,0 +1,16 @@
+1/ Giúp tái sử dụng, hạn chế dư thừa code và dễ mở rộng.
+ VD: Trong trường học có giáo viên, sinh viên, nhân viên tất cả đều có những hoạt động khác nhau với vai trò của mình
+  nhưng đều có chung các thuộc tính như: Họ tên, ngày sinh, nơi ở,... 
+  Nếu mỗi lớp đều có các thuộc tính này việc viết đi viết lại sẽ rất mất thời gian, 
+  nên phân lớp các thuộc tính chung rồi cho kế thừa các thuộc tính này sẽ tiết kiệm được thời gian và công sức.
+  
+2/ Sự cần thiết phải tái định nghĩa một phương thức
+ VD: Lớp động vật sẽ có tiếng kêu nhưng không thể xác định cụ thể sẽ phát ra tiếng gì, 
+ lớp mèo sẽ tái định nghĩa lại hành động kêu phát ra tiếng meow, lớp chó phát ra tiếng gâu,...
+ 
+3/ Sự cần thiết phải nạp chồng một phương thức
+ VD: Phương thức in print sẽ có thể có tham số truyền vào là một chuỗi hoắc một số nguyên, số thực,...
+ để tăng tính sử dụng cho hàm print cần nạp chồng phương thức này với các kiểu tham số truyền vào khác nhau, dễ dàng sử dụng cho các lớp khác
+ 
+4/ Sự cần thiết phải ngăn cấm không cho tái định nghĩa một phương thức, khi cần nhất quán một hành động được kế thừa từ lớp cha
+ VD: Lớp động vật có phương thức nhìn bằng mắt, các lớp con của động vật không cần thiết phải định nghĩa lại phương thức nhìn này.

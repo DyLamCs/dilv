@@ -1,0 +1,13 @@
+package com.web.studentmanagerserverapi;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class StudentManagerServerApiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
